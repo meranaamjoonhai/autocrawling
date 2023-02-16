@@ -5,7 +5,7 @@ import subprocess
 def job():
     subprocess.run(["python", "crawling.py"])
 
-schedule.every().day.at("15:13").do(job)
+schedule.every().day.at("15:30").do(job)
 
 while True:
     schedule.run_pending()

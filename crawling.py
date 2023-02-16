@@ -140,7 +140,7 @@ new_mail.Subject = f"{date.today().strftime('%Y-%m-%d 나라장터 입찰 리스
 #수신자
 to_list = ['josuh@deloitte.com']
 new_mail.To = ";".join(to_list)
-attachment1 = rf'C:\Users\josuh\Desktop\나라장터 크롤링\RA_Operaional_공고_{today}.xlsx'
+attachment1 = rf'C:\Users\josuh\Desktop\나라장터 크롤링\RA_Operational_공고_{today}.xlsx'
 new_mail.Attachments.Add(Source=attachment1)
 
 
