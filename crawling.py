@@ -102,7 +102,7 @@ df
 
 # %%
 column = ['업무','공고번호-차수','분류','공고명','공고기관','수요기관','계약방법','입력일시','입찰마감일시']
-new_df= df.iloc[:,10:]
+new_df= df.iloc[:,10:19]
 new_df.columns = column
 
 
@@ -123,7 +123,7 @@ from datetime import datetime
 today = datetime.today().strftime('%Y-%m-%d')
 
 # %%
-aa.to_excel(f'RA_Operaional_공고_{today}.xlsx')
+aa.to_excel(f'RA_Operational_공고_{today}.xlsx')
 
 # %%
 aa
@@ -140,7 +140,10 @@ new_mail.Subject = f"{date.today().strftime('%Y-%m-%d 나라장터 입찰 리스
 #수신자
 to_list = ['josuh@deloitte.com']
 new_mail.To = ";".join(to_list)
-attachment1 = rf'C:\Users\josuh\Desktop\나라장터 크롤링\RA_Operational_공고_{today}.xlsx'
+cc_list = ['yosohn@deloitte.com']
+new_mail.HTMLBody = "this is for test"
+new_mail.CC = ";".join(cc_list)
+attachment1 = rf'C:\Users\josuh\Desktop\나라장터 크롤링\autocrawling\RA_Operational_공고_{today}.xlsx'
 new_mail.Attachments.Add(Source=attachment1)
 
 
