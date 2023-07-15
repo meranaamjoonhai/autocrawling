@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>나라장터 입찰 공고</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #3e8e41;
+        }
+
+        .download-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>나라장터 입찰 공고</h1>
+    <a href="{{ url_for('download') }}" class="btn btn-primary download-button">Download as Excel</a>
+    <table>
+        <tr>
+            <th>키워드</th>
+            <th>업무</th>
+            <th>공고번호-차수</th>
+            <th>분류</th>
+            <th>공고명</th>
+            <th>공고기관</th>
+            <th>수요기관</th>
+            <th>계약방법</th>
+            <th>입력일시</th>
+            <th>입찰마감일시</th>
+            <th>링크</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row['키워드'] }}</td>
+            <td>{{ row['업무'] }}</td>
+            <td>{{ row['공고번호-차수'] }}</td>
+            <td>{{ row['분류'] }}</td>
+            <td>{{ row['공고명'] }}</td>
+            <td>{{ row['공고기관'] }}</td>
+            <td>{{ row['수요기관'] }}</td>
+            <td>{{ row['계약방법'] }}</td>
+            <td>{{ row['입력일시'] }}</td>
+            <td>{{ row['입찰마감일시'] }}</td>
+            <td><a href="{{ row['링크'] }}">바로가기</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
